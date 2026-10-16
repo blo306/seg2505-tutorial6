@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androix.recyclerview.widget.LinearLayoutManager;
-import androix.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +19,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button myButton = (Button) findViewById(R.id.button);
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.layoutManager = new LinearLayoutManager(this)
-        recyclerView.setAdapter(customAdapter);
+        String[] months = {
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+        };
+
+        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        CustomAdapter adapter = new CustomAdapter(months);
+        recyclerView.setAdapter(adapter);
     }
 
 }
